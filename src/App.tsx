@@ -1,6 +1,7 @@
 import "./App.css";
 import Calculator from "./components/calculator";
 import showCalculator2 from "./components/calculator2";
+import showCalculator3 from "./components/calculator3";
 
 function App() {
   return (
@@ -10,6 +11,16 @@ function App() {
       {showCalculator2({
         initalValue: 1,
         plugins: [{ name: "square", exec: (val, setVal) => setVal(val * val) }],
+      })}
+      {showCalculator3({
+        initalValue: 1,
+        plugins: [
+          {
+            name: "square",
+            exec: (val, setVal) => setVal(val * val),
+            onMount: () => console.log("the calculator3 is onmount"),
+          },
+        ],
       })}
     </div>
   );
